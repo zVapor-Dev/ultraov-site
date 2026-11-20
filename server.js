@@ -82,4 +82,8 @@ const server = createServer(async (req, res) => {
   }
 });
 
-server.listen(PORT, '0.0.0.0', () => console.log(`Ultra OV NL website on port ${PORT}`));
+const started = Date.now();
+// "Ready in" is the line the hosting panel waits for to mark the server as running.
+server.listen(PORT, '0.0.0.0', () =>
+  console.log(`Ultra OV NL website Ready in ${Date.now() - started} ms on port ${PORT}`),
+);
