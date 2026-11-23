@@ -844,6 +844,9 @@ section {
   max-width: 760px;
   padding-bottom: 72px;
 }
+/* long source URLs (bronnen) wrap instead of widening the page on phones */
+.prose li a { overflow-wrap: anywhere; }
+
 
 .prose h2 {
   font-size: 1.5rem;
