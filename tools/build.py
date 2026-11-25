@@ -41,7 +41,8 @@ def page(out, body_file, title, desc, lang='nl'):
         f = f.replace('<h2>Databronnen</h2>', '<h2>Data sources</h2>')
         f = f.replace('Reisinformatie op basis van open OV-gegevens, waaronder NDOV Loket, OVapi en NS. Gegevens kunnen afwijken van de werkelijkheid.',
                       'Travel information based on open Dutch public transport data, including NDOV Loket, OVapi and NS. Data may differ from reality.')
-        f = f.replace('Niet verbonden aan NS of andere vervoerders.', 'Not affiliated with NS or any other transport operator.')
+        f = f.replace('Geen app van de overheid. Niet verbonden aan NS of andere vervoerders.', 'Not a government app. Not affiliated with NS or any other transport operator.')
+        f = f.replace('Alle bronnen met links', 'All sources with links').replace('<a href="/bronnen">Bronnen</a>', '<a href="/en/sources">Sources</a>').replace('/bronnen"', '/en/sources"')
         f = f.replace('/NLPRIV"', '/privacy"')
         f = f.replace('Jouw reis. Het OV in detail.', 'Your journey. Public transport in detail.')
     body = (G / body_file).read_text()
@@ -55,11 +56,13 @@ page('', '404.html', 'Pagina niet gevonden', 'Deze pagina bestaat niet.')
 page('privacy', 'privacy-nl.html', 'Privacybeleid', 'Hoe Ultra OV NL met je gegevens omgaat.')
 page('voorwaarden', 'terms-nl.html', 'Gebruiksvoorwaarden', 'De voorwaarden voor het gebruik van Ultra OV NL.')
 page('account-verwijderen', 'account-nl.html', 'Account verwijderen', 'Zo verwijder je je Ultra OV NL-account en bijbehorende gegevens.')
+page('bronnen', 'sources-nl.html', 'Bronnen', 'Waar de informatie in Ultra OV NL vandaan komt, met links naar de originele bronnen.')
 page('support', 'support-nl.html', 'Support en contact', 'Hulp, contact en het verwijderen van je gegevens bij Ultra OV NL.')
 for f, o, t, d in [
     ('privacy-en.html', 'en/privacy', 'Privacy policy', 'How Ultra OV NL handles your data.'),
     ('terms-en.html', 'en/terms', 'Terms of use', 'The terms for using Ultra OV NL.'),
     ('account-en.html', 'en/delete-account', 'Delete your account', 'How to delete your Ultra OV NL account and its data.'),
+    ('sources-en.html', 'en/sources', 'Sources', 'Where the information in Ultra OV NL comes from, with links to the original sources.'),
     ('support-en.html', 'en/support', 'Support and contact', 'Help, contact and deleting your data at Ultra OV NL.'),
 ]:
     if (G / f).exists():
